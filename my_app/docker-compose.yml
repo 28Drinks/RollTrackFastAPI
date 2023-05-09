@@ -1,0 +1,37 @@
+version: '3.9'
+
+services:
+  backend:
+    build: ./api
+    ports:
+      - "8000:8000"
+    environment:
+      - MONGO_DETAILS=mongodb+srv://elias:EineMate123@test.b8l0oo5.mongodb.net/rollbots?retryWrites=true&w=majority
+    depends_on:
+      - mongo
+    networks:
+      - app-network
+
+  frontend:
+    build: ./app
+    ports:
+      - "80:80"
+    networks:
+      - app-network
+
+  mongo:
+    image: mongo:latest
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - app-network
+
+volumes:
+  mongo-data:
+
+networks:
+  app-network:

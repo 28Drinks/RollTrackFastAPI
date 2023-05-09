@@ -1,0 +1,36 @@
+# Python
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+env/
+
+# IDE
+.vscode/
+
+# Compiled output
+dist/
+build/
+*.egg-info/
+
+# Logs
+*.log
+
+# Cache
+*.cache
+*.swp
+
+# Data
+*.sqlite3
+*.db
+*.csv
+
+# OS
+.DS_Store
+Thumbs.db
+
+.env
+/env
