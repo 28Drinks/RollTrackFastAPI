@@ -1,11 +1,13 @@
 #!/bin/bash
 
+API_DIR="./my_app/api"
+
 # Activate virtual environment
-source venv/bin/activate
+source "${API_DIR}/venv/bin/activate"
 
 # Define custom commands
 function start_server() {
-    python my_app/main.py
+    python "${API_DIR}/main.py"
 }
 
 function start_client() {

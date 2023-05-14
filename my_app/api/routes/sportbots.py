@@ -7,16 +7,6 @@ from json import JSONDecodeError
 from schemas.sportbots import *
 from schemas.util import *
 
-from db_helper import (
-    create_document,
-    get_document_by_id,
-    get_document_by_name,
-    get_document_by_sport,
-    get_documents,
-    get_sportbot_by_number,
-)
-
-
 sportbots = APIRouter()
 
 collection_name = "sportbots_collection"

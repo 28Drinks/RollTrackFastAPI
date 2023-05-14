@@ -3,20 +3,8 @@ from fastapi import APIRouter, Body, Depends
 from fastapi.encoders import jsonable_encoder
 from typing import Annotated
 
-
-from routes.auth import oauth2_scheme
-
 from schemas.rollbots import *
 from schemas.util import *
-
-from db_helper import (
-    create_document,
-    get_document_by_id,
-    get_document_by_name,
-    get_document_by_sport,
-    get_documents,
-)
-
 
 rollbots = APIRouter()
 
@@ -25,7 +13,6 @@ collection_name = "rollbots_collection"
 
 @rollbots.get("/rollbot/")
 async def get_rollbots(
-    token: Annotated[str, Depends(oauth2_scheme)],
     collection_name: str = collection_name,
 ):
     rollbots = await get_documents(collection_name)

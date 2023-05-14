@@ -5,18 +5,6 @@ from fastapi.encoders import jsonable_encoder
 from schemas.share import *
 from schemas.util import *
 
-from db_helper import (
-    create_document,
-    get_document_by_id,
-    get_document_by_name,
-    get_document_by_sport,
-    get_documents,
-    get_sport_by_sport,
-    update_sport_by_sport,
-    get_sport_shares,
-    create_sport_share,
-)
-
 sports = APIRouter()
 
 collection_name = "sports_collection"

@@ -9,6 +9,7 @@ from routes.sports import sports
 from routes.share import share
 from routes.user import user
 from routes.auth import auth
+from routes.inventory import inventory
 
 app = FastAPI()
 
@@ -37,6 +38,7 @@ app.include_router(sports, prefix="/api", tags=["Sports"])
 app.include_router(share, prefix="/api", tags=["Share"])
 app.include_router(user, prefix="/api", tags=["User"])
 app.include_router(auth, prefix="/api", tags=["Auth"])
+app.include_router(inventory, prefix="/api", tags=["Inv"])
 
 
 @app.get("/", tags=["Root"])
