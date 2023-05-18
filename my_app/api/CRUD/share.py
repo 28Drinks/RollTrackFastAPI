@@ -9,14 +9,21 @@ collection = client[TEST_MONGO_DB_NAME][collection_name]
 
 
 async def get_all_share(sport, date):
+    match_stage = {}
+    if sport:
+        #sport = sport.lower()
+        match_stage["sport"] = sport
+    if date:
+        pattern = re.compile(f"^{date}")
+        match_stage["date_time"] = {"$regex": pattern}
+    
     pipeline = [
-        {"$match": {"date_time": sport}},
-        {"$sort": {"value": -1}}
+        {"$match": match_stage},
+        {"$sort": {"value": -1}},
+        {"$project": {"_id": 0}}
     ]
     cursor = collection.aggregate(pipeline)
     result = await cursor.to_list(length=None)
-    for doc in result:
-        doc["_id"] = str(doc["_id"])
     return result
 
 
