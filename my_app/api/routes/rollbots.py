@@ -30,12 +30,3 @@ async def get_rollbot_by_name(name, collection_name: str = collection_name):
         )
     return ErrorResponseModel("Error", 404, "Something went wrong retrieved from db")
 
-
-@rollbots.post("/rollbot/")
-async def add_rollbot_data(
-    collection_name: str = collection_name, rollbot: RollbotSchema = Body(...)
-):
-    rollbot = jsonable_encoder(rollbot)
-    new_rollbot = await create_document(collection_name, rollbot)
-    print(new_rollbot)
-    return ResponseModel(new_rollbot, "Rollbot added succesfully")

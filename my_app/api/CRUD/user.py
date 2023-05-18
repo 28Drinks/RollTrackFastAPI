@@ -16,12 +16,17 @@ async def get_users():
 
 async def get_user(document_id):
     result = await collection.find_one({"_id": ObjectId(document_id)})
+    if not result:
+        return "User not found"
     result["_id"] = str(result["_id"])
     return result
 
 
 async def get_user_by_name(document_name):
     result = await collection.find_one({"username": document_name})
+    if not result:
+        return "User not found"
+    result["_id"] = str(result["_id"])
     return result
 
 

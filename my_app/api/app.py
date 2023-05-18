@@ -5,7 +5,6 @@ from fastapi.security import OAuth2PasswordBearer
 
 from routes.rollbots import rollbots
 from routes.sportbots import sportbots
-from routes.sports import sports
 from routes.share import share
 from routes.user import user
 from routes.auth import auth
@@ -34,7 +33,6 @@ app.add_middleware(
 
 app.include_router(rollbots, prefix="/api", tags=["Rollbots"])
 app.include_router(sportbots, prefix="/api", tags=["Sportbots"])
-app.include_router(sports, prefix="/api", tags=["Sports"])
 app.include_router(share, prefix="/api", tags=["Share"])
 app.include_router(user, prefix="/api", tags=["User"])
 app.include_router(auth, prefix="/api", tags=["Auth"])

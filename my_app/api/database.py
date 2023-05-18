@@ -5,6 +5,7 @@ import motor.motor_asyncio
 
 MONGO_DETAILS = config("MONGO_DETAILS")
 MONGO_DB_NAME = "testing420"
+TEST_MONGO_DB_NAME = "microserviceTest2"
 
 client = motor.motor_asyncio.AsyncIOMotorClient(MONGO_DETAILS, serverSelectionTimeoutMS=5000)
 
