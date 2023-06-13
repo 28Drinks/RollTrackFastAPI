@@ -7,6 +7,7 @@ from .sportbots import SportbotSchema, UpdateSportBotSchema
 
 
 class BotClaims(BaseModel):
+    claim_number: int
     claimed_at: datetime | None = None
     claimed_share: float | None = None
     claimed_freebet: int | None = None
@@ -15,11 +16,11 @@ class BotClaims(BaseModel):
 
 
 class BotInInventory(BaseModel):
-    bot_id: str
+    bot_number: int
     claimed: bool | None = None
     last_claimed_at: datetime | None = None
     total_claims: int | None = None
-    claims: List[BotClaims] | None = None
+    claims: List[BotClaims] | None = []
     value: float | None = None
     buy_price: float | None = None
 

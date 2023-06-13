@@ -11,7 +11,6 @@ from schemas.util import *
 from CRUD.auth import *
 
 auth = APIRouter()
-
 collection_name = "user_collection"
 
 
@@ -37,11 +36,9 @@ async def login(form_data: OAuth2PasswordRequestForm = Depends()):
         data={"_id": str(user["_id"])},
         expires_delta=timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES),
     )
-
     return {"token": access_token}
 
 
 @auth.get("/users/me")
 async def get_current_user_me(current_user: UserSchema = Depends(get_current_user)):
-
     return current_user
